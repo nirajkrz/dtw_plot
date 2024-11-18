@@ -15,3 +15,11 @@ After filling out the grid, we identify the lowest path along the grid from the 
 ![Alt text](./images/f3.png?raw=true "DTW Example")
 
 The resultant path is then converted to a distance value using a distance formula, **the smaller the value the more similar two signals are said to be according to DTW.**
+
+With the **Diagonal Priority to get shortest path** , the output would appear as below:
+
+![Alt text](./DTW_shortest_path_plot.png?raw=true "DTW with Shortest Path")
+
+**DTW with Min Cost Path :**
+
+![Alt text](./dtw_with_path.png?raw=true "DTW with Min Cost Path")
