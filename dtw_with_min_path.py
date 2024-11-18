@@ -43,6 +43,23 @@ def find_min_cost_path(dtw_table):
     path.reverse()
     return path
 
+
+"""
+“Distance\=i\=0∑L−2​(vi​−vi+1​)2​”
+
+"""
+
+# Calculate the L-2 Distance based on the given formula
+def calculate_distance(path, signal1, signal2):
+    distance_squared = 0
+    for i in range(len(path) - 1):
+        vi = abs(signal1[path[i][0]] - signal2[path[i][1]])
+        vi_next = abs(signal1[path[i + 1][0]] - signal2[path[i + 1][1]])
+        distance_squared += (vi - vi_next) ** 2
+
+    return distance_squared
+
+
 def plot_dtw_table(dtw_table, signal1, signal2, path):
     # Plot the DTW table with labels, grid, and min-cost path
     fig, ax = plt.subplots(figsize=(10, 8))
@@ -87,6 +104,11 @@ signal2 = [4, 2, 1, 0, 5, 5,7,7,3,2,1]
 
 dtw_table = compute_dtw(signal1, signal2)
 min_cost_path = find_min_cost_path(dtw_table)
+
+# Calculate the L-2 distance squared
+distance_squared = calculate_distance(min_cost_path, signal1, signal2)
+
+print("distance between signals:" distance_squared)
 
 print("DTW Table:")
 print(dtw_table)
